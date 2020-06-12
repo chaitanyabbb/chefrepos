@@ -1,0 +1,6 @@
+search <%= node[:system][:dns_search] %>
+
+<% node[:system][:dns_resolvers].each do |key,resolver| -%>
+nameserver <%= resolver %>
+<% end -%>
+options <%= node[:system][:dns_options] %>

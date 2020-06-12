@@ -1,0 +1,6 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+<%= @ipaddress %>	<%= @fqdn %> <%= @hostname %>
+<% node[:system][:hosts].each do |key,host| -%>
+<%= host %>
+<% end -%>
+

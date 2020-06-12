@@ -1,0 +1,12 @@
+<% node[:system][:osmounts].each do |key,osmount| -%>
+<%= osmount %>
+<% end %>
+<% unless node['platform_version'].to_f >= 7.0 %>
+tmpfs                   /dev/shm                tmpfs   defaults        0 0
+devpts                  /dev/pts                devpts  gid=5,mode=620  0 0
+sysfs                   /sys                    sysfs   defaults        0 0
+proc                    /proc                   proc    defaults        0 0
+<% end %>
+<% node[:system][:mounts].each do |key,mount| -%>
+<%= mount %>
+<% end -%>
